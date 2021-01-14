@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+status_wifi=$(nmcli | awk '/^wlan0:/ {print $2}')
+wifi=$(nmcli | awk '/^wlan0:/ {print $4}')
+status_eth=$(nmcli | awk '/^eno1:/ {print $2}')
+
+if [ $status_wifi = "connected" ]; then
+  echo " "
+elif [ $status_eth = "connected" ]; then
+  echo " "
+else
+  echo " "
+fi
