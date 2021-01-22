@@ -13,8 +13,15 @@ static const char *brdowncmd[] = { "brightnessctl", "set", "10%-", NULL };
 /* ss */
 static const char *sspy[] = {"ss-py", NULL};
 
+/* monitor ex */
+static const char *moff[] = {"monitor-off", NULL};
+static const char *mon[] = {"monitor-on", NULL};
+
 /* file manager */
 static const char *fm[] = {"pcmanfm", NULL};
+
+/* file manager */
+static const char *nm[] = {"network", NULL};
 
 /* browser */
 static const char *browser[] = {"qutebrowser", NULL};
@@ -34,11 +41,10 @@ static const char dmenufont[]       = "Hack Nerd Font:size=10:style=Bold";
 static const char col_gray[]       = "#dedede";
 static const char col_blue[]        = "#315bef";
 static const char col_red[]         = "#6d2115";
-static const char col_flat[]       = "#23252e";
-static const char col_ndark[]       = "#242424";
+static const char col_dark[]       = "#37383b";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray, col_ndark, col_blue },
+	[SchemeNorm] = { col_gray, col_dark, col_blue },
 	[SchemeSel]  = { col_gray, col_blue, col_blue },
 };
 
@@ -63,7 +69,6 @@ static const Rule rules[] = {
    { "Xarchiver", NULL, NULL, 0, 1, -1 },
    { "System-config-printer.py", NULL, NULL, 0, 1, -1 },
    { "Nitrogen", NULL, NULL, 0, 1, -1 },
-   { "st", NULL, "Tray", 0, 1, -1 },
    { "st", NULL, "Youtube", 0, 1, -1 },
    { "st", NULL, "Musik", 0, 1, -1 },
    { "st", NULL, "Mixer", 0, 1, -1 },
@@ -100,7 +105,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-x", "350", "-y", "350", "-z", "650", "-l", "6", "-g", "3", "-m", dmenumon, "-fn", dmenufont, "-nb", col_ndark, "-nf", col_gray, "-sb", col_blue, "-sf", col_gray, "-p", " Apps :", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_dark, "-nf", col_gray, "-sb", col_blue, "-sf", col_gray, "-p", " :", NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *minitermcmd[]  = { "terminal", NULL };
 
@@ -117,6 +122,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_r,      spawn,          {.v = browser } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_t,      spawn,          {.v = minitermcmd } },
+	{ MODKEY|ShiftMask,             XK_m,      spawn,          {.v = mon } },
+	{ MODKEY|ShiftMask,             XK_o,      spawn,          {.v = moff } },
+	{ MODKEY,                       XK_n,      spawn,          {.v = nm } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

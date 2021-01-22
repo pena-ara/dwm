@@ -3,14 +3,16 @@
 state=$(cat /sys/class/power_supply/BAT0/status)
 cap=$(cat /sys/class/power_supply/BAT0/capacity)
 if [ $state = "Charging" ]; then
-	echo "ﮣ"
+	echo "ﮣ $cap%"
+elif [ $state = "Full" ]; then
+  echo "ﮣ"
 elif [ "$cap" -gt "50" ]; then
-  echo ""
+  echo " "
 elif [ $cap = "50" ]; then
-  echo ""
+  echo " "
 elif [ "$cap" -gt "20" ]; then
-  echo " $cap"
+  echo " "
 else
-	echo " "
-#  dunstify -a "Battery" -u low -r "20" "Battery Low $cap%" "Please Charge "
+	echo " "
+  dunstify -u low -r "20" "Battery Low $cap%" "Please Charge ﮣ"
 fi

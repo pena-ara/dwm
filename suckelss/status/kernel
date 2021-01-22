@@ -1,0 +1,4 @@
+#! /bin/bash 
+linux=$(uname -r | rev | cut -b9- | rev | cut -b1-)
+#user=$(whoami)
+echo " $linux"

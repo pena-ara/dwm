@@ -1,5 +1,5 @@
 #! /bin/bash 
 
-mem="$(free -h | awk '/^Mem:/ {print $3}')"
-cpu="$(sensors | awk '/^Package id 0:/ {print $4}' | rev | cut -b4- | rev | cut -b2-)"
+mem="$(free -h --giga | awk '/^Mem:/ {print $3}')"
+cpu="$(sensors | awk '/^Package id 0:/ {print $4}' | rev | cut -b6- | rev | cut -b2-)"
 echo " ﬙ $mem  $cpu°"

@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
 status_wifi=$(nmcli | awk '/^wlan0:/ {print $2}')
+ssid=$(nmcli | awk '/^wlan0:/ {print $4}')
+#signal_wifi=$(nmcli dev wifi | awk '/*/ {print $9}')
 wifi=$(nmcli | awk '/^wlan0:/ {print $4}')
 status_eth=$(nmcli | awk '/^eno1:/ {print $2}')
 
 if [ $status_wifi = "connected" ]; then
-  echo " "
+  echo "說 $ssid"
 elif [ $status_eth = "connected" ]; then
   echo " "
 else
