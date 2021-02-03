@@ -2,4 +2,4 @@
 
 mem="$(free -h --giga | awk '/^Mem:/ {print $3}')"
 cpu="$(sensors | awk '/^Package id 0:/ {print $4}' | rev | cut -b6- | rev | cut -b2-)"
-echo " ﬙ $mem  $cpu°"
+echo "  ﬙ $mem  $cpu°"

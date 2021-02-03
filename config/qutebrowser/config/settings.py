@@ -440,12 +440,15 @@ c.url.searchengines = {
     "DEFAULT": "https://duckduckgo.com/?q={}",
     "a": "https://wiki.archlinux.org/?search={}",
     "repo": "https://archlinux.org/packages/?q={}",
-    "aur": "https://aur.archlinux.org/packages/?={}",
+    "aur": "https://aur.archlinux.org/packages/?O=0&K={}",
     "g": "https://www.google.com/search?hl=en&q={}",
     "yt": "https://www.youtube.com/results?search_query={}",
     "gh": "https://github.com/search?q={}",
     "gl": "https://gitlab.com/search?search={}",
     "w": "https://id.wikipedia.org/w/index.php?search={}",
+    "disc": "https://discord.com/channels/@me{}",
+    "wal": "https://wallup.net/?s={}",
+    "d-video": "https://distillvideo.com/?url={}",
 }
 
 # Page(s) to open at the start.
@@ -472,8 +475,3 @@ c.window.hide_decoration = True
 # `tabs.title.format` are defined.
 # Type: FormatString
 c.window.title_format = "{perc}{current_title}{title_sep}qutebrowser"
-
-# Loading autoconfig.yml
-# When a config.py file exists, autoconfig.yml is not loaded automatically.
-# To load autoconfig.yml automatically, add the following snippet to config.py
-config.load_autoconfig()

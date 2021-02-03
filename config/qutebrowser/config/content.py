@@ -97,31 +97,6 @@ c.content.headers.referer = "same-domain"
 # Type: String
 c.content.headers.user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36"
 
-# Enable host blocking.
-# Type: Bool
-c.content.host_blocking.enabled = True
-
-# List of URLs of lists which contain hosts to block.  The file can be
-# in one of the following formats:  - An `/etc/hosts`-like file - One
-# host per line - A zip-file of any of the above, with either only one
-# file, or a file   named `hosts` (with any extension).  It's also
-# possible to add a local file or directory via a `file://` URL. In case
-# of a directory, all files in the directory are read as adblock lists.
-# The file `~/.config/qutebrowser/blocked-hosts` is always read if it
-# exists.
-# Type: List of Url
-c.content.host_blocking.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts']
-
-# A list of patterns that should always be loaded, despite being ad-
-# blocked. Note this whitelists blocked hosts, not first-party URLs. As
-# an example, if `example.org` loads an ad from `ads.example.org`, the
-# whitelisted host should be `ads.example.org`. If you want to disable
-# the adblocker on a given page, use the `content.host_blocking.enabled`
-# setting with a URL pattern instead. Local domains are always exempt
-# from hostblocking.
-# Type: List of UrlPattern
-c.content.host_blocking.whitelist = []
-
 # Enable hyperlink auditing (`<a ping>`).
 # Type: Bool
 c.content.hyperlink_auditing = False
@@ -224,7 +199,7 @@ c.content.notifications = "ask"
 # still be downloaded by clicking the download button in the pdf.js
 # viewer.
 # Type: Bool
-c.content.pdfjs = False
+c.content.pdfjs = True
 
 # Allow websites to request persistent storage quota via
 # `navigator.webkitPersistentStorage.requestQuota`.

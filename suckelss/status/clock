@@ -2,4 +2,4 @@
 #tgl=$(date +"%A %d %b %H:%M")
 tgl=$(date +"%d %b")
 jam=$(date +"%H:%M")
-echo " $tgl ﲊ $jam"
+echo " ﭷ $tgl  $jam"

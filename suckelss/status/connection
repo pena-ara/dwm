@@ -5,11 +5,14 @@ ssid=$(nmcli | awk '/^wlan0:/ {print $4}')
 #signal_wifi=$(nmcli dev wifi | awk '/*/ {print $9}')
 wifi=$(nmcli | awk '/^wlan0:/ {print $4}')
 status_eth=$(nmcli | awk '/^eno1:/ {print $2}')
+status_usb=$(nmcli | awk '/^enp0s26u1u2c4i2:/ {print $2}')
 
 if [ $status_wifi = "connected" ]; then
-  echo "說 $ssid"
+  echo " $ssid"
 elif [ $status_eth = "connected" ]; then
   echo " "
+elif [ $status_usb = "connected" ]; then
+  echo "禍"
 else
   echo " "
 fi
